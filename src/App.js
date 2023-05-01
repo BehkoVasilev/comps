@@ -1,47 +1,27 @@
-import Button from "./Button";
-import { GoBell, GoEye, GoHome, GoPulse } from "react-icons/go";
+import Accordion from './components/Accordion'
+import ButtonPage from './pages/ButtonPage';
 
 function App() {
-    function handleClick() {
-        console.log("click!!!");
-    }
-
-    const handleMove = () => {
-        console.log("mouse move!");
-    }
+    const items = [
+        {
+            id: '12dsad',
+            label: 'Can I use React on the project?',
+            content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente cupiditate, vero deleniti, mollitia dolorem saepe dignissimos voluptate laborum deserunt, ipsam distinctio. Tempore ea sunt necessitatibus voluptatem rerum saepe adipisci incidunt?'
+        },
+        {
+            id: 'safdw4321',
+            label: 'Can I use JavaScript on the project?',
+            content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta voluptatum quisquam alias magnam doloribus. Aperiam, quisquam optio ipsum assumenda, dolore esse nulla harum voluptate enim quibusdam, odit atque officiis laboriosam!'
+        },
+        {
+            id: 'fs3245',
+            label: 'Can I use CSS on the project?',
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque unde sunt ab cupiditate in quod officia ullam quas reiciendis sequi! Unde sapiente illo harum doloremque exercitationem repellat magnam ab? Beatae?'
+        }
+    ];
 
     return (
-        <div>
-            <div>
-                <Button primary rounded outline className='mb-4' onClick={handleClick}>
-                    <GoBell />
-                    Click me!
-                </Button>
-            </div>
-            <div>
-                <Button secondary rounded onMouseEnter={handleClick} onMouseMove={handleMove}>
-                    <GoPulse />
-                    Buy Now!
-                </Button>
-            </div>
-            <div>
-                <Button success outline rounded className='border-4 px-6' onMouseLeave={handleClick}>
-                    Submit
-                </Button>
-            </div>
-            <div>
-                <Button warning rounded>
-                    <GoEye />
-                    Hide Ads!
-                </Button>
-            </div>
-            <div>
-                <Button danger rounded>
-                    <GoHome />
-                    See Deal!
-                </Button>
-            </div>
-        </div>
+        <Accordion items={items}/>
     )
 };
 
