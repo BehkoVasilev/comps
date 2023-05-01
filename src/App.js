@@ -3,7 +3,7 @@ import Button from "./Button"
 function App() {
     return <div>
         <div>
-            <Button secondary>Click me!</Button>
+            <Button primary>Click me!</Button>
         </div>
         <div>
             <Button danger>Buy Now!</Button>
