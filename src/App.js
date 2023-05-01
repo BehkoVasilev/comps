@@ -6,16 +6,16 @@ function App() {
             <Button primary>Click me!</Button>
         </div>
         <div>
-            <Button danger>Buy Now!</Button>
+            <Button secondary rounded>Buy Now!</Button>
         </div>
         <div>
-            <Button>Submit</Button>
+            <Button success outline>Submit</Button>
         </div>
         <div>
-            <Button>Hide Ads!</Button>
+            <Button warning rounded>Hide Ads!</Button>
         </div>
         <div>
-            <Button>See Deal!</Button>
+            <Button danger outline rounded>See Deal!</Button>
         </div>
     </div>
 };
