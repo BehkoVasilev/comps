@@ -2,7 +2,7 @@ import Button from "./Button";
 import { GoBell, GoEye, GoHome, GoPulse } from "react-icons/go";
 
 function App() {
-    function handleClick () {
+    function handleClick() {
         console.log("click!!!");
     }
 
@@ -13,7 +13,7 @@ function App() {
     return (
         <div>
             <div>
-                <Button primary rounded outline onClick={handleClick}>
+                <Button primary rounded outline className='mb-4' onClick={handleClick}>
                     <GoBell />
                     Click me!
                 </Button>
@@ -25,7 +25,7 @@ function App() {
                 </Button>
             </div>
             <div>
-                <Button success outline onMouseLeave={handleClick}>
+                <Button success outline rounded className='border-4 px-6' onMouseLeave={handleClick}>
                     Submit
                 </Button>
             </div>
