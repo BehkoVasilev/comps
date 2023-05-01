@@ -5,21 +5,19 @@ function Accordion({
 }) {
     const [expandedIndex, setExpandedInex] = useState(null);
 
-    // const handleClick = (e) => {
-    //     const array = items.map((item) => item.label);
-    //     const index = array.indexOf(e.currentTarget.textContent);
-
-    //     if (index === expandedIndex){
-    //         return setExpandedInex(null)
-    //     }
-    //     setExpandedInex(index);
-    // }
+    const handleClick = (inx) => {
+        if (inx === expandedIndex){
+            return setExpandedInex(null)
+        }
+        setExpandedInex(inx);
+    }
 
     const renderItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
         return (
             <dir key={item.id}>
-                <div onClick={() => index === expandedIndex ? setExpandedInex(null) : setExpandedInex(index)} >{item.label}</div>
+                <div onClick={() => handleClick(index)} >{item.label}</div>
+                {/* <div onClick={() => index === expandedIndex ? setExpandedInex(null) : setExpandedInex(index)} >{item.label}</div> */}
                 {isExpanded && <div>{item.content}</div>}
             </dir>)
     })
