@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 function Accordion({
     items
@@ -7,20 +7,29 @@ function Accordion({
     const [expandedIndex, setExpandedInex] = useState(null);
 
     const handleClick = (inx) => {
-        if (inx === expandedIndex) {
-            return setExpandedInex(null)
-        }
-        setExpandedInex(inx);
+        //Functional version: use if NEW value depends on OLD
+        setExpandedInex(current => {
+            console.log(current);
+            if (inx === current) {
+                return null
+            } else {
+                return inx
+            }
+        })
+        // if (inx === expandedIndex) {
+        //     setExpandedInex(null)
+        // } else {
+        //     setExpandedInex(inx);
+        // }
     };
 
     const renderItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
 
-        const icon = <span>{isExpanded ? <GoChevronUp /> : <GoChevronDown />}</span>
-        console.log(icon);
+        const icon = <span className="text-2xl">{isExpanded ? <GoChevronDown /> : <GoChevronLeft />}</span>
         return (
-            <dir className='m-1' key={item.id}>
-                <div onClick={() => handleClick(index)} className="w-1/2 justify-between flex items-center border-2 border-black bg-slate-700 text-white">
+            <dir className='m-0.5' key={item.id}>
+                <div onClick={() => handleClick(index)} className="w-1/2 justify-between flex items-center border-2 border-black bg-slate-700 text-white cursor-pointer">
                     {item.label}
                     {icon}
                 </div>
