@@ -1,6 +1,11 @@
+import Dropdown from "./components/Dropdown";
+
 function App() {
     return (
-        <div>App</div>
+        <div>
+            App
+            <Dropdown />
+        </div>
     );
 };
 
