@@ -50,7 +50,7 @@ function Button({
 };
 
 Button.propTypes = {
-    chechVariationOfTheButton: ({ primary, secondary, success, warning, danger }) => {
+    checkVariationOfTheButton: ({ primary, secondary, success, warning, danger }) => {
         const count =
             Number(!!primary) +
             Number(!!secondary) +
