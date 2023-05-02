@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
+
 
 function Dropdown({
     options,
-    onSelect,
-    selection
+    onChange,
+    value
 }) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -14,8 +16,10 @@ function Dropdown({
 
     const handleOptionClick = (option) => {
         setIsOpen(false);
-        onSelect(option);
+        onChange(option);
     };
+
+    const icon = <span>{isOpen ? <GoChevronDown /> : <GoChevronLeft />}</span>;
 
     const renderOptions = options.map((option) => {
 
@@ -26,7 +30,10 @@ function Dropdown({
 
     return (
         <div>
-            <div onClick={handleSelectClick}>{selection ? selection : "Select..."}</div>
+            <div className="w-32 bg-slate-700 text-white justify-between flex items-center" onClick={handleSelectClick}>
+                {value || "Select..."}
+                {icon}
+            </div>
             {isOpen && <div>{renderOptions}</div>}
         </div>
     );
