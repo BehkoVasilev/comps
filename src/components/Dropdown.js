@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
@@ -11,6 +11,8 @@ function Dropdown({
     value
 }) {
     const [isOpen, setIsOpen] = useState(false);
+
+    const dropdownRef = useRef();
 
     const classes = twMerge(classNames(`
          bg-slate-700 justify-between flex items-center
@@ -25,7 +27,22 @@ function Dropdown({
         2: 'hover:bg-red-600 p-1 rounded'
     }
 
+    useEffect(() => {
+        const handler = (e) => {
+            // console.log(dropdownRef.current);
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)){
+                setIsOpen(false);
+            }
+        };
 
+        document.addEventListener('click', handler, true);
+
+        // return () => {
+        //     document.removeEventListener('click', handler)
+        // }
+
+
+    },[])
     const handleSelectClick = () => {
         setIsOpen((current) => !current);
         // setIsOpen(!isOpen);
@@ -45,7 +62,7 @@ function Dropdown({
     });
 
     return (
-        <div className="w-48 relative">
+        <div className="w-48 relative" ref={dropdownRef}>
             <Panel className={classes} onClick={handleSelectClick}>
                 {value || "Select..."}
                 {icon}
