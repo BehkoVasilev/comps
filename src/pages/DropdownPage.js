@@ -25,4 +25,4 @@ function DropdownPage() {
     );
 };
 
-export default App
+export default DropdownPage
