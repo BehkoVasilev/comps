@@ -1,15 +1,13 @@
-import Link from "./components/Link";
 import Route from "./components/Route";
 import AccordionPage from './pages/AccordionPage';
 import DropdownPage from './pages/DropdownPage';
 import ButtonPage from './pages/ButtonPage';
+import Sidebar from "./components/Sidebar";
 
 function App() {
     return (
         <div>
-            <Link to={'/accordion'}>Go to Accordion</Link>
-            <Link to={'/dropdown'}>Go to Dropdown</Link>
-            <Link to={'/buttons'}>Go to Buttons</Link>
+            <Sidebar />
             <div>
                 <Route path={'/buttons'}>
                     <ButtonPage />
@@ -17,7 +15,7 @@ function App() {
                 <Route path={'/accordion'}>
                     <AccordionPage />
                 </Route>
-                <Route path={'/dropdown'}>
+                <Route path={'/'}>
                     <DropdownPage />
                 </Route>
             </div>
