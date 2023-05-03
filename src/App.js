@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function App() {
-    return <div>asd</div>
+    return <div></div>
 };
 
 export default App
