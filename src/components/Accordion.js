@@ -27,7 +27,7 @@ function Accordion({
         const icon = <span className="text-2xl">{isExpanded ? <GoChevronDown /> : <GoChevronLeft />}</span>;
         
         return (
-            <dir className='m-0.5' key={item.id}>
+            <dir className='m-0.5 p-0' key={item.id}>
                 <div onClick={() => handleClick(index)} className="w-1/2 justify-between flex items-center border-2 border-black bg-slate-700 text-white cursor-pointer">
                     {item.label}
                     {icon}

@@ -13,13 +13,13 @@ function ButtonPage() {
     return (
         <div>
             <div>
-                <Button primary rounded outline className='mb-4' onClick={handleClick}>
+                <Button primary rounded outline className='mb-1' onClick={handleClick}>
                     <GoBell />
                     Click me!
                 </Button>
             </div>
             <div>
-                <Button secondary rounded onMouseEnter={handleClick} onMouseMove={handleMove}>
+                <Button secondary onMouseEnter={handleClick} onMouseMove={handleMove}>
                     <GoPulse />
                     Buy Now!
                 </Button>
