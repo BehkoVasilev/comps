@@ -9,7 +9,6 @@ function Accordion({
     const handleClick = (inx) => {
         //Functional version: use if NEW value depends on OLD
         setExpandedInex(current => {
-            console.log(current);
             if (inx === current) {
                 return null
             } else {
