@@ -6,10 +6,10 @@ function TablePage () {
         { name: 'Apple', color: 'bg-red-500', score: '2' },
         { name: 'Banana', color: 'bg-yellow-400', score: '1' },
         { name: 'Lime', color: 'bg-green-600', score: '3' },
-    ],
+    ]
 
     const config = [
-        {label: 'Name'},
+        {label: 'Fruits'},
         {label: 'Color'},
         {label: 'Score'},
     ]

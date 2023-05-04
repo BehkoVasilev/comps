@@ -1,5 +1,7 @@
-function Table({ data }) {
-
+function Table({ data, config }) {
+    const renderHeaders = config.map((column) => {
+        return <th key={column.label}>{column.label}</th>
+    });
 
     const renderRows = data.map((fruit) => {
         return (
@@ -16,9 +18,7 @@ function Table({ data }) {
     return (
         <table className="table-auto border-spacing-2">
             <thead className="border-b-2 border-gray-400">
-                <th>Fruits</th>
-                <th>Color</th>
-                <th>Score</th>
+                {renderHeaders}
             </thead>
             <tbody>
                 {renderRows}
