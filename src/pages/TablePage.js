@@ -1,21 +1,38 @@
 import Table from "../components/Table";
 
-function TablePage () {
+function TablePage() {
     const data = [
-        { name: 'Orange', color: 'bg-orange-500', score: '5' },
-        { name: 'Apple', color: 'bg-red-500', score: '2' },
-        { name: 'Banana', color: 'bg-yellow-400', score: '1' },
-        { name: 'Lime', color: 'bg-green-600', score: '3' },
+        { name: 'Orange', color: 'bg-orange-500', score: '5', class: 'A' },
+        { name: 'Apple', color: 'bg-red-500', score: '2', class: 'B'},
+        { name: 'Banana', color: 'bg-yellow-400', score: '1', class: 'A' },
+        { name: 'Lime', color: 'bg-green-600', score: '3', class: 'C' },
     ]
 
     const config = [
-        {label: 'Fruits'},
-        {label: 'Color'},
-        {label: 'Score'},
-    ]
+        {
+            label: 'Fruits',
+            render: (fruit) => fruit.name
+        },
+        { 
+            label: 'Color',
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>
+        },
+        { 
+            label: 'Score',
+            render: (fruit) => fruit.score
+        },
+        {
+            label: 'Class',
+            render: (fruit) => fruit.class
+        }
+    ];
+
+    const keyFn = (fruit) => {
+        return fruit.name;
+    }
 
     return (
-        <Table data={data} config={config}/>
+        <Table data={data} config={config} keyFn={keyFn} />
     );
 };
 
