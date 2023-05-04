@@ -6,12 +6,17 @@ function ModalPage() {
     const [showModal, setSholModal] = useState(false);
 
     const handleClick = () => {
-        setSholModal((current) => !current)
-    }
+        setSholModal((current) => !current);
+    };
+
+    const handleClose = () => {
+        setSholModal(false);
+    };
+
     return (
         <div>
             <Button onClick={handleClick} primary rounded>Open Modal</Button>
-            {showModal && <Modal />}
+            {showModal && <Modal onClose={handleClose}/>}
         </div>
     );
 };
