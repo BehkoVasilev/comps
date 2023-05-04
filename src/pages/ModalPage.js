@@ -1,8 +1,12 @@
 import Modal from "../components/Modal";
+import Button from "../components/Button";
 
 function ModalPage() {
-    return(
-        <Modal />
+    return (
+        <div>
+            <Button primary rounded>Open Modal</Button>
+            <Modal />
+        </div>
     );
 };
 
