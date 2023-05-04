@@ -11,20 +11,20 @@ function App() {
         <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
             <Sidebar />
             <div className="col-span-5">
-                <Route path={'/table'}>
-                    <TablePage />
-                </Route>
-                <Route path={'/buttons'}>
-                    <ButtonPage />
+                <Route path={'/'}>
+                    <DropdownPage />
                 </Route>
                 <Route path={'/accordion'}>
                     <AccordionPage />
                 </Route>
+                <Route path={'/buttons'}>
+                    <ButtonPage />
+                </Route>
                 <Route path={'/modal'}>
                     <ModalPage />
                 </Route>
-                <Route path={'/'}>
-                    <DropdownPage />
+                <Route path={'/table'}>
+                    <TablePage />
                 </Route>
             </div>
         </div>)
