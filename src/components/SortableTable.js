@@ -8,7 +8,22 @@ function SortableTable(props) {
     const { config } = props;
 
     const handleClick = (label) => {
-        console.log(label);
+        if (sortBy !== label) {
+            setSortOrder('asc');
+            setSortBy(label);
+            return
+        };
+
+        if (sortOrder === null) {
+            setSortOrder('asc');
+            setSortBy(label);
+        } else if (sortOrder === 'asc') {
+            setSortOrder('desc');
+            setSortBy(label);
+        } else if (sortOrder === 'desc') {
+            setSortOrder(null);
+            setSortBy(null);
+        };
     }
 
     const updatedConfig = config.map((column) => {
@@ -25,7 +40,10 @@ function SortableTable(props) {
         }
     });
     //when we pass config={updatedConfig} like that the config prop in {...props} will be overwritten
-    return <Table {...props} config={updatedConfig} />
+    return <div>
+        {sortOrder} - {sortBy}
+        <Table {...props} config={updatedConfig} />
+    </div>
 };
 
 export default SortableTable;
