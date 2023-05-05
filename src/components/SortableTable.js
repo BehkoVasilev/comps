@@ -1,7 +1,15 @@
+import { useState } from "react";
 import Table from "./Table"
 
 function SortableTable(props) {
+    const [sortOrder, setSortOrder] = useState(null);
+    const [sortBy, setSortBy] = useState(null);
+
     const { config } = props;
+
+    const handleClick = (label) => {
+        console.log(label);
+    }
 
     const updatedConfig = config.map((column) => {
         if (!column.sortValue) {
@@ -10,7 +18,10 @@ function SortableTable(props) {
 
         return {
             ...column,
-            header: () => <th className="p-2">{column.label} Is Sortable</th>
+            header: () =>
+                <th onClick={() => handleClick(column.label)} className="p-2">
+                    {column.label} Is Sortable
+                </th>
         }
     });
     //when we pass config={updatedConfig} like that the config prop in {...props} will be overwritten
