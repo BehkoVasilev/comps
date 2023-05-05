@@ -4,7 +4,7 @@ import SortableTable from "../components/SortableTable";
 function TablePage() {
     const data = [
         { name: 'Orange', color: 'bg-orange-500', score: '5', class: 'A' },
-        { name: 'Apple', color: 'bg-red-500', score: '2', class: 'B'},
+        { name: 'Apple', color: 'bg-red-500', score: '2', class: 'B' },
         { name: 'Banana', color: 'bg-yellow-400', score: '1', class: 'A' },
         { name: 'Lime', color: 'bg-green-600', score: '3', class: 'C' },
     ]
@@ -15,11 +15,11 @@ function TablePage() {
             render: (fruit) => fruit.name,
             sortValue: (fruit) => fruit.name
         },
-        { 
+        {
             label: 'Color',
             render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>
         },
-        { 
+        {
             label: 'Score',
             render: (fruit) => fruit.score,
             sortValue: (fruit) => fruit.score
@@ -29,7 +29,7 @@ function TablePage() {
             label: 'Class',
             render: (fruit) => fruit.class,
             sortValue: (fruit) => fruit.class
-        }
+        },
     ];
 
     const keyFn = (fruit) => {
