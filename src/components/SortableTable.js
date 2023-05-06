@@ -60,8 +60,8 @@ function SortableTable(props) {
             } else {
                 return (valueA - valueB) * reverseOrder;
             }
-        })
-    }
+        });
+    };
 
     //when we pass config={updatedConfig} like that the config prop in {...props} will be overwritten
     return <Table {...props} data={sortedData} config={updatedConfig} />
