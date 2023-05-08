@@ -7,7 +7,7 @@ function Panel({
     ...rest
 }) {
     const finalClassNames = twMerge(classNames(
-        'w-full text-white cursor-pointer border rounded shadow p-3',
+        'w-full border rounded shadow p-3',
         className
     ));
 

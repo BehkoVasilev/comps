@@ -62,7 +62,7 @@ function Dropdown({
     });
 
     return (
-        <div className="w-48 relative" ref={dropdownRef}>
+        <div className="w-48 relative cursor-pointer" ref={dropdownRef}>
             <Panel className={classes} onClick={handleSelectClick}>
                 {value || "Select..."}
                 {icon}
