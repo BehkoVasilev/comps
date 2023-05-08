@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { produce } from "immer";
 
 const INCREMENT_COUNT = 'increment';
 const DECREMENT_COUNT = 'decrement';
@@ -6,65 +7,54 @@ const SET_VALUE_TO_ADD = 'change_value_to_add';
 const ADD_VALUE = 'add-value'
 
 const reducer = (state, action) => {
+    //Reducer with Immer
     switch (action.type) {
         case INCREMENT_COUNT:
-            return {
-                ...state,
-                count: state.count + 1
-            }
+            state.count = state.count + 1;
+            return;
         case DECREMENT_COUNT:
-            return {
-                ...state,
-                count: state.count - 1
-            }
+            state.count -= 1;
+            return;
         case SET_VALUE_TO_ADD:
-            return {
-                ...state,
-                valueToAdd: action.preload
-            }
+            state.valueToAdd = action.preload;
+            return;
         case ADD_VALUE:
-            return {
-                ...state,
-                count: state.count + state.valueToAdd,
-                valueToAdd: 0
-            }
+            state.count += state.valueToAdd;
+            return;
         default:
             return state
     }
-    
-    
-    // if (action.type === INCREMENT_COUNT) {
-    //     return {
-    //         ...state,
-    //         count: state.count + 1
-    //     }
-    // };
-
-    // if (action.type === DECREMENT_COUNT) {
-    //     return {
-    //         ...state,
-    //         count: state.count - 1
-    //     }
-    // };
-
-    // if (action.type === SET_VALUE_TO_ADD) {
-    //     return {
-    //         ...state,
-    //         valueToAdd: action.preload
-    //     }
-    // };
-
-    // if (action.type === ADD_VALUE) {
-    //     return {
-    //         ...state,
-    //         count: state.count + state.valueToAdd,
-    //         valueToAdd: 0
-    //     }
-    // };
+    //Normal reducer
+    // switch (action.type) {
+    //     case INCREMENT_COUNT:
+    //         return {
+    //             ...state,
+    //             count: state.count + 1
+    //         }
+    //     case DECREMENT_COUNT:
+    //         return {
+    //             ...state,
+    //             count: state.count - 1
+    //         }
+    //     case SET_VALUE_TO_ADD:
+    //         return {
+    //             ...state,
+    //             valueToAdd: action.preload
+    //         }
+    //     case ADD_VALUE:
+    //         return {
+    //             ...state,
+    //             count: state.count + state.valueToAdd,
+    //             valueToAdd: 0
+    //         }
+    //     default:
+    //         return state
+    // }
 };
 
 function useCounter(initValues) {
-    const [state, dispatch] = useReducer(reducer, { count: initValues, valueToAdd: 0 })
+    const [state, dispatch] = useReducer(produce(reducer, { count: initValues, valueToAdd: 0 }));
+
     const updateValue = (e) => {
         const value = parseInt(e.target.value) || 0;
         dispatch({
