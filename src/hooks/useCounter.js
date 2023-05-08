@@ -20,6 +20,7 @@ const reducer = (state, action) => {
             return;
         case ADD_VALUE:
             state.count += state.valueToAdd;
+            state.valueToAdd = 0;
             return;
         default:
             return state
